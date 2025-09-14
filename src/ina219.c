@@ -43,6 +43,7 @@ esp_err_t ina219_init(ina219_t *c, i2c_master_bus_handle_t bus, uint8_t addr, ui
     };
     ESP_RETURN_ON_ERROR(i2c_master_bus_add_device(bus, &dev_cfg, &c->dev), TAG, "add_device failed");
 
+    // Optional: write a default CONFIG register value if required (based on the datasheet and the operating mode you want).
     // wr16_be(c, INA219_REG_CONFIG, 0x019F);
 
     c->current_lsb = 0.0f;
