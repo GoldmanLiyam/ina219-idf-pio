@@ -1,4 +1,4 @@
-# NA219-IDF
+# INA219-IDF
 
 Minimal INA219 driver for ESP-IDF 5+ using the modern I²C bus/device API (driver/i2c_master.h).
 No Arduino/Wire layer, no Component Manager required — works cleanly via PlatformIO lib_deps.
