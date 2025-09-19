@@ -1,9 +1,9 @@
-NA219-IDF
+# NA219-IDF
 
 Minimal INA219 driver for ESP-IDF 5+ using the modern I²C bus/device API (driver/i2c_master.h).
 No Arduino/Wire layer, no Component Manager required — works cleanly via PlatformIO lib_deps.
 
-Features
+## Features
 
 ESP-IDF 5+ I²C Master (bus/device handles)
 
@@ -13,7 +13,7 @@ Simple calibration API (set your shunt and max current)
 
 Tiny footprint, header: ina219.h
 
-Requirements
+## Requirements
 
 ESP-IDF 5.0+ (PlatformIO framework = espidf)
 
@@ -21,7 +21,7 @@ ESP32 target (tested), should work on other ESP-IDF 5+ devices with I²C
 
 Pull-ups on SDA/SCL (typically 4.7 kΩ to 3.3 V). Internal pull-ups may be insufficient.
 
-Installation (PlatformIO)
+## Installation (PlatformIO)
 
 Add this repository URL to your project’s platformio.ini:
 
@@ -32,12 +32,11 @@ board = esp32dev
 monitor_speed = 115200
 
 lib_deps =
-  https://github.com/<YOUR-USER>/ina219-idf-pio
+  https://github.com/GoldmanLiyam/ina219-idf-pio
 
 
-Replace <YOUR-USER> with your GitHub username (repo must be public).
 
-Quick Start
+## Quick Start
 
 Wiring (example for ESP32):
 
@@ -51,7 +50,7 @@ INA219 GND → GND
 
 INA219 accepts 3–5.5 V supply, but I²C lines must be 3.3 V logic on ESP32.
 
-Example (main.c):
+## Example (main.c):
 
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
@@ -102,7 +101,7 @@ void app_main(void) {
     // i2c_del_master_bus(bus);
 }
 
-API Overview
+## API Overview
 
 Header: ina219.h
 
@@ -123,7 +122,7 @@ esp_err_t ina219_read_current(ina219_t *ctx, float *amps);
 esp_err_t ina219_read_power(ina219_t *ctx, float *watts);
 
 
-Notes:
+## Notes:
 
 Calibration is required for accurate current/power:
 
@@ -137,7 +136,7 @@ Bus voltage LSB = 4 mV (bits [15:3])
 
 Shunt voltage LSB = 10 µV (signed)
 
-Tips & Troubleshooting
+## Tips & Troubleshooting
 
 If #include "ina219.h" isn’t found:
 
@@ -155,10 +154,10 @@ Try lower I²C speed (e.g., 100 kHz).
 
 Verify the INA219 I²C address (jumpers) with a scanner.
 
-License
+## License
 
 MIT
 
-Acknowledgements
+## Acknowledgements
 
 Based on the INA219 datasheet and ESP-IDF 5+ I²C bus/device API.
