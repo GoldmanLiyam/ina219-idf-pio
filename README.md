@@ -157,7 +157,7 @@ Verify the INA219 I²C address (jumpers) with a scanner.
 
 License
 
-MIT (or your preferred license).
+MIT
 
 Acknowledgements
 
